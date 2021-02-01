@@ -1,4 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
+import PieLabel from '@antv/f2/lib/plugin/pie-label'; // 引入 PieLabel 模块
+import ScrollBar from '@antv/f2/lib/plugin/scroll-bar'; // 引入 ScrollBar 模块
+import '@antv/f2/lib/interaction'; // 引入 ScrollBar 模块
 import F2 from '../F2';
 import { px2hd } from '../utils';
 import { ChartProps } from './';
@@ -18,7 +21,8 @@ export default (props: UseChart) => {
     height,
     appendPadding,
     data,
-    animate,
+    colDefs = {},
+    animate = true,
   } = props;
   const [chart, setChart] = useState<F2.Chart>();
   const mounting = useRef(true);
@@ -32,10 +36,10 @@ export default (props: UseChart) => {
         padding,
         pixelRatio,
         appendPadding,
+        plugins: [PieLabel, ScrollBar],
       });
-      instance.source(data);
-      console.log('首次渲染1');
-      instance.animate(!!animate);
+      instance.source(data, colDefs);
+      // instance.animate(!!animate);
       // instance.interval().position('year*sales');
       setChart(instance);
     }
@@ -46,16 +50,13 @@ export default (props: UseChart) => {
       return;
     }
     if (mounting.current) {
+      console.log('chart.render');
       chart.render();
-      console.log('首次渲染2');
       mounting.current = false;
     }
   });
   useEffect(() => {
     if (chart) {
-      console.log('首次渲染，变化');
-      const a = chart.get('geoms');
-      console.log(a);
       chart.changeData(data);
     }
   }, [JSON.stringify(data)]);

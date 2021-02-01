@@ -14,18 +14,6 @@ const ChartDemo = () => {
   ]);
   return (
     <>
-      <button
-        onClick={() => {
-          setstate([
-            { year: '1951', sales: 50 },
-            { year: '1952', sales: 50 },
-            { year: '1956', sales: 50 },
-            { year: '1962', sales: 38 },
-          ]);
-        }}
-      >
-        数据变化
-      </button>
       <Chart
         width={750}
         height={400}
@@ -33,7 +21,7 @@ const ChartDemo = () => {
         pixelRatio={window.devicePixelRatio}
         animate
       >
-        <Geometry type="interval" position="year*sales" />
+        <Geometry type="path" position="year*sales" />
       </Chart>
     </>
   );

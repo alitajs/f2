@@ -5,15 +5,22 @@ import React, {
   useRef,
   Fragment,
 } from 'react';
-import { Chart as F2Chart, ChartParams } from '@antv/f2';
-
+import {
+  Chart as F2Chart,
+  ChartParams,
+  DataRecord,
+  DataRecordScale,
+} from '@antv/f2';
 import useChart from './useChart';
+
+export type Data<DataRecord> = DataRecord[];
 
 export interface ChartProps extends ChartParams {
   /**
    * 图表的数据
    */
-  data: any[];
+  data: Data<DataRecord>;
+  colDefs?: DataRecordScale<DataRecord>;
   /**
    * canvas 的类名
    */
@@ -67,7 +74,6 @@ const Chart = forwardRef<
           return React.cloneElement(child, {
             ...child.props,
             chart,
-            container,
           });
         })}
     </Fragment>

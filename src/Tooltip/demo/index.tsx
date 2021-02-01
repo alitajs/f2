@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Chart, Geometry } from '@alitajs/f2';
+import { Chart, Geometry, Tooltip } from '@alitajs/f2';
 
 const ChartDemo = () => {
   const [state, setstate] = useState([
@@ -14,18 +14,6 @@ const ChartDemo = () => {
   ]);
   return (
     <>
-      <button
-        onClick={() => {
-          setstate([
-            { year: '1951', sales: 50 },
-            { year: '1952', sales: 50 },
-            { year: '1956', sales: 50 },
-            { year: '1962', sales: 38 },
-          ]);
-        }}
-      >
-        数据变化
-      </button>
       <Chart
         width={750}
         height={400}
@@ -34,6 +22,7 @@ const ChartDemo = () => {
         animate
       >
         <Geometry type="interval" position="year*sales" />
+        <Tooltip showTitle={true} />
       </Chart>
     </>
   );

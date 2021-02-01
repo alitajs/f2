@@ -1,7 +1,6 @@
 {
-  "private": true,
   "name": "@alitajs/f2",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -34,9 +33,11 @@
       "prettier --parser=typescript --write"
     ]
   },
-  "dependencies": {
-    "@antv/f2": "^3.8.1",
+  "peerDependencies": {
     "react": "^16.12.0"
+  },
+  "dependencies": {
+    "@antv/f2": "^3.8.1"
   },
   "devDependencies": {
     "@umijs/test": "^3.3.7",
@@ -48,5 +49,8 @@
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
     "yorkie": "^2.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

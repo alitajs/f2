@@ -1,7 +1,7 @@
 ---
 nav:
-  title: 组件
-  path: /components
+  title: API
+  path: /api
 ---
 
 ### 基本用法
@@ -9,7 +9,5 @@ nav:
 <code src="./demo/index.tsx" />
 
 ### 使用 hooks
-
-<code src="./demo/useInterval.tsx" />
 
 <API/>

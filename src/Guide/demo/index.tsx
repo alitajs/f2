@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Chart, Geometry } from '@alitajs/f2';
+import { Chart, Geometry, Guide } from '@alitajs/f2';
 
 const ChartDemo = () => {
   const [state, setstate] = useState([
@@ -14,18 +14,6 @@ const ChartDemo = () => {
   ]);
   return (
     <>
-      <button
-        onClick={() => {
-          setstate([
-            { year: '1951', sales: 50 },
-            { year: '1952', sales: 50 },
-            { year: '1956', sales: 50 },
-            { year: '1962', sales: 38 },
-          ]);
-        }}
-      >
-        数据变化
-      </button>
       <Chart
         width={750}
         height={400}
@@ -33,7 +21,16 @@ const ChartDemo = () => {
         pixelRatio={window.devicePixelRatio}
         animate
       >
-        <Geometry type="interval" position="year*sales" />
+        <Geometry type="line" position="year*sales" />
+        <Guide
+          type="line"
+          top={true}
+          style={{
+            stroke: '#FF0000', // 线的颜色
+            lineDash: [0, 2, 2], // 虚线的设置
+            lineWidth: 3, // 线的宽度
+          }}
+        />
       </Chart>
     </>
   );

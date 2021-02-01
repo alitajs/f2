@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useChart, useInterval } from '@alitajs/f2';
+import { useChart, useGeometry } from '@alitajs/f2';
 
 const ChartDemo = () => {
   const [state, setstate] = useState([
@@ -22,7 +22,8 @@ const ChartDemo = () => {
     pixelRatio: window.devicePixelRatio,
     animate: true,
   });
-  const { interval } = useInterval({
+  const { geometry } = useGeometry({
+    type: 'interval',
     chart,
     container,
     position: 'year*sales',
@@ -32,8 +33,8 @@ const ChartDemo = () => {
     elmRef.current,
   ]);
   useEffect(() => {
-    if (chart && interval) {
-      interval.position(isXy ? 'year*sales' : 'sales*year');
+    if (chart && geometry) {
+      geometry.position(isXy ? 'year*sales' : 'sales*year');
       chart.repaint();
     }
   }, [isXy]);

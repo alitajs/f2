@@ -10,6 +10,4 @@ nav:
 
 ### 使用 hooks
 
-<code src="./demo/useChart.tsx" />
-
 <API/>
