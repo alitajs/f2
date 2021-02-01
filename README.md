@@ -2,8 +2,8 @@
 
 基于 F2 封装的图表组件，支持 react hooks。帮助你快速的在移动端项目中构建图表。
 完全准照 F2 的 API 封装，支持完全的图表自定义，但是其实在你的项目中，并不需要自定义图表。
-我们通过对移动端的图表需求进行整理和构建，提供了一个常用的[图表库 @alitajs/charts](https://github.com/alitajs/f2)。
-你可以优先使用[@alitajs/charts](https://github.com/alitajs/f2)快速实现你的需求。
+我们通过对移动端的图表需求进行整理和构建，提供了一个常用的[图表库 @alitajs/charts](https://github.com/alitajs/charts)。
+你可以优先使用[@alitajs/charts](https://github.com/alitajs/charts)快速实现你的需求。
 
 ## 用法
 
