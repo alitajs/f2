@@ -22,7 +22,6 @@ export default (props: UseChart) => {
     appendPadding,
     data,
     colDefs = {},
-    animate = true,
   } = props;
   const [chart, setChart] = useState<F2.Chart>();
   const mounting = useRef(true);
@@ -50,7 +49,6 @@ export default (props: UseChart) => {
       return;
     }
     if (mounting.current) {
-      console.log('chart.render');
       chart.render();
       mounting.current = false;
     }

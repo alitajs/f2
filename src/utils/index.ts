@@ -19,3 +19,12 @@ export const px2hd = (px?: number): number => {
 export function isFunction(obj: any) {
   return Object.prototype.toString.call(obj) === '[object Function]';
 }
+
+/**
+ * 获取%
+ * 如：输入 0.200011010 输出 20
+ * @param n
+ */
+export function getPercentage(n: number) {
+  return Math.round(parseFloat(`${n || 0}`) * 100);
+}
