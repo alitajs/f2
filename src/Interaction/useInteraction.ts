@@ -8,8 +8,6 @@ export default (props = {} as UseInteraction) => {
   useMemo(() => {
     if (!chart || !field) return;
     if (reset) {
-      console.log('interaction');
-      console.log(field);
       chart.interaction(field, reset);
     } else {
       chart.interaction(field);

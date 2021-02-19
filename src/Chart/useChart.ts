@@ -1,7 +1,4 @@
 import { useEffect, useState, useRef } from 'react';
-import PieLabel from '@antv/f2/lib/plugin/pie-label'; // 引入 PieLabel 模块
-import ScrollBar from '@antv/f2/lib/plugin/scroll-bar'; // 引入 ScrollBar 模块
-import '@antv/f2/lib/interaction'; // 引入 ScrollBar 模块
 import F2 from '../F2';
 import { px2hd } from '../utils';
 import { ChartProps } from './';
@@ -14,15 +11,7 @@ export interface UseChart extends ChartProps {
 }
 
 export default (props: UseChart) => {
-  const {
-    pixelRatio,
-    padding,
-    width,
-    height,
-    appendPadding,
-    data,
-    colDefs = {},
-  } = props;
+  const { width, height, data, colDefs = {}, ...reset } = props;
   const [chart, setChart] = useState<F2.Chart>();
   const mounting = useRef(true);
   const [container, setContainer] = useState(props.container);
@@ -32,10 +21,7 @@ export default (props: UseChart) => {
         el: container,
         width: px2hd(width),
         height: px2hd(height),
-        padding,
-        pixelRatio,
-        appendPadding,
-        plugins: [PieLabel, ScrollBar],
+        ...reset,
       });
       instance.source(data, colDefs);
       // instance.animate(!!animate);
