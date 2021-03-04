@@ -4,13 +4,18 @@ import { LegendProps } from './';
 export interface UseLegend extends LegendProps {}
 
 export default (props = {} as UseLegend) => {
-  const { chart, disable, ...reset } = props;
+  const { chart, disable, onClick, ...reset } = props;
   useMemo(() => {
     if (!chart) return;
     if (disable) {
       chart.legend(false);
     } else {
-      chart.legend(reset);
+      chart.legend({
+        ...reset,
+        onClick: (args: any) => {
+          onClick && onClick({ ...args, chart });
+        },
+      });
     }
   }, [chart]);
 
