@@ -2,7 +2,9 @@ import { useEffect, useState, useRef } from 'react';
 import F2 from '../F2';
 import { px2hd } from '../utils';
 import { ChartProps } from './';
+import * as selectShapeByLegendName from './plugins/selectShapeByLegendName';
 
+F2.Chart.plugins.register([selectShapeByLegendName]);
 export interface UseChart extends ChartProps {
   /**
    * 指定的容器
@@ -24,6 +26,8 @@ export default (props: UseChart) => {
         ...reset,
       });
       instance.source(data, colDefs);
+      // @ts-ignore
+      // instance.set('selectShapeByLegend', () => console.log('selectShapeByLegend'))
       // instance.animate(!!animate);
       // instance.interval().position('year*sales');
       setChart(instance);

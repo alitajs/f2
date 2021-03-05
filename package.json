@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/f2",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",

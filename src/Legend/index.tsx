@@ -8,6 +8,19 @@ export interface LegendProps extends LegendParams {
    * 当 disable 为 true 时，不渲染图例
    */
   disable?: boolean;
+  /**
+   * 用于自定义鼠标点击图例项的交互，当 clickable 为 false 时不生效。
+   */
+  onClick?: ({
+    clickedItem,
+    selectShapeByLegend,
+  }: {
+    clickedItem: any;
+    selectShapeByLegend: (
+      name: string,
+      onEnd?: (clickedShape: any, coord: any, canvas: any) => void,
+    ) => void;
+  }) => any;
   [key: string]: any;
 }
 
