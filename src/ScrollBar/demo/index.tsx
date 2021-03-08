@@ -58,7 +58,7 @@ const ChartDemo = () => {
             offsetY: -5,
           }}
         />
-        {/* <Guide
+        <Guide
           type="tag"
           position={[1969, 1344]}
           withPoint={false}
@@ -66,7 +66,7 @@ const ChartDemo = () => {
           limitInPlot={true}
           offsetX={5}
           direct="cr"
-        /> */}
+        />
       </Chart>
     </>
   );

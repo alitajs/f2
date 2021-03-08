@@ -12,14 +12,18 @@ export default (props = {} as UseGuide) => {
     if (!chart || !type) return;
     const guide = chart.guide();
     if (!isFunction(guide[type])) return null;
-    data.map((item: any) => {
-      guide[type]({
-        ...reset,
-        content: content ? content(item) : undefined,
-        position: position ? position(item) : undefined,
-        offsetX: offsetX ? offsetX(item) : 0,
+    if (data && data.length) {
+      data.map((item: any) => {
+        guide[type]({
+          ...reset,
+          content: content ? content(item) : undefined,
+          position: position ? position(item) : undefined,
+          offsetX: offsetX ? offsetX(item) : 0,
+        });
       });
-    });
+    } else {
+      guide[type](reset);
+    }
     setGuide(guide);
   }, [chart]);
 

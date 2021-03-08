@@ -25,11 +25,10 @@ const ChartDemo = () => {
         <Guide
           type="line"
           top={true}
-          data={state}
           style={{
             stroke: '#FF0000', // 线的颜色
             lineDash: [0, 2, 2], // 虚线的设置
-            lineWidth: 30, // 线的宽度
+            lineWidth: 3, // 线的宽度
           }}
         />
       </Chart>
