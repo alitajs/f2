@@ -28,3 +28,38 @@ export function isFunction(obj: any) {
 export function getPercentage(n: number) {
   return Math.round(parseFloat(`${n || 0}`) * 100);
 }
+
+/**
+ * 柱形图排列规则是按中心点两边排列，左右对称
+ * 分组柱状图自动调整 Guide 位置 offsetX
+ * @param index // 该组位于第几个位置
+ * @param length // 每组共有几个位置
+ */
+export const autoGetOffsetX = (index: number, length: number): number => {
+  const size = 40 / length;
+  const m = index + 1;
+  let offsetX = 0;
+  let c = Math.ceil(length / 2);
+  if (length % 2 === 0) {
+    // 偶数列 2
+    if (m > c) {
+      // 右侧
+      offsetX = (m - c) * (m - 1) * size;
+      return offsetX;
+    } else {
+      offsetX = (c - m + 1) * (length - m) * size;
+      return -offsetX;
+    }
+  } else {
+    // 奇数列
+    if (m === c) return 0;
+    if (m > c) {
+      // 右侧
+      offsetX = (m - c + 1) * (m - 1) * size;
+      return offsetX;
+    } else {
+      offsetX = (c - m + 1) * (length - m) * size - size / 2;
+      return -offsetX;
+    }
+  }
+};
