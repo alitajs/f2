@@ -14,7 +14,6 @@ const ChartDemo = () => {
       elmRef.current.chart.changeData(data);
     }, 1000);
   }, []);
-
   // 添加数据，模拟数据，可以指定当前时间的偏移的秒
   function getRecord(offset?) {
     offset = offset || 0;
@@ -47,12 +46,11 @@ const ChartDemo = () => {
       easing: animateCfg.easing,
     });
   });
-
   return (
     <>
       <Chart
         ref={elmRef}
-        width={725}
+        width={750}
         height={400}
         data={data}
         pixelRatio={window.devicePixelRatio}
@@ -84,7 +82,6 @@ const ChartDemo = () => {
             return textCfg;
           }}
         />
-
         <Geometry
           type="line"
           position="time*value"
