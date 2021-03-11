@@ -2,11 +2,11 @@ import React from 'react';
 import { Chart, Geometry, Axis, Tooltip } from '@alitajs/f2';
 import { getDateByName } from '../data';
 const ChartDemo = () => {
-  const state = getDateByName('line/base');
+  const state = getDateByName('line/withPoint');
   return (
     <>
       <Chart
-        width={750}
+        width={700}
         height={400}
         data={state}
         pixelRatio={window.devicePixelRatio}
@@ -15,26 +15,28 @@ const ChartDemo = () => {
             tickCount: 5,
             min: 0,
           },
-          date: {
-            type: 'timeCat',
+          day: {
             range: [0, 1],
-            tickCount: 3,
           },
         }}
       >
-        <Geometry type="line" position="date*value" />
+        <Geometry type="line" position="day*value" />
+        <Geometry
+          type="point"
+          position="day*value"
+          style={{ stroke: '#fff', lineWidth: 1 }}
+        />
         <Tooltip
-          custom
-          showXTip
-          showYTip
-          snap
-          crosshairsType="xy"
-          crosshairsStyle={{
-            lineDash: [2],
+          showCrosshairs
+          showItemMarker={false}
+          onShow={ev => {
+            const items = ev.items;
+            items[0].name = null;
+            items[0].value = '$ ' + items[0].value;
           }}
         />
         <Axis
-          field="date"
+          field="day"
           label={(text, index, total) => {
             const textCfg = {} as any;
             if (index === 0) {

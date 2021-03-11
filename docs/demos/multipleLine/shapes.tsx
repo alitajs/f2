@@ -1,8 +1,8 @@
 import React from 'react';
-import { Chart, Geometry, Axis, Tooltip } from '@alitajs/f2';
+import { Chart, Geometry, Axis, Legend } from '@alitajs/f2';
 import { getDateByName } from '../data';
 const ChartDemo = () => {
-  const state = getDateByName('line/base');
+  const state = getDateByName('multipleLine/shapes');
   return (
     <>
       <Chart
@@ -11,30 +11,24 @@ const ChartDemo = () => {
         data={state}
         pixelRatio={window.devicePixelRatio}
         colDefs={{
-          value: {
-            tickCount: 5,
-            min: 0,
-          },
-          date: {
+          time: {
             type: 'timeCat',
-            range: [0, 1],
             tickCount: 3,
+            mask: 'hh:mm',
+            range: [0, 1],
+          },
+          value: {
+            tickCount: 3,
+            formatter: ivalue => {
+              return ivalue + '%';
+            },
           },
         }}
       >
-        <Geometry type="line" position="date*value" />
-        <Tooltip
-          custom
-          showXTip
-          showYTip
-          snap
-          crosshairsType="xy"
-          crosshairsStyle={{
-            lineDash: [2],
-          }}
-        />
+        <Geometry type="line" position="time*value" color="type" shape="type" />
         <Axis
-          field="date"
+          field="time"
+          line={null}
           label={(text, index, total) => {
             const textCfg = {} as any;
             if (index === 0) {
@@ -45,6 +39,19 @@ const ChartDemo = () => {
             return textCfg;
           }}
         />
+        <Axis
+          field="tem"
+          grid={text => {
+            console.log(text);
+            if (text === '0%') {
+              return {
+                lineDash: null,
+                lineWidth: 1,
+              };
+            }
+          }}
+        />
+        <Legend position="bottom" offsetY={-5} />
       </Chart>
     </>
   );

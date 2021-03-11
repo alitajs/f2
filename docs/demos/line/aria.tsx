@@ -10,6 +10,7 @@ const ChartDemo = () => {
         height={400}
         data={state}
         pixelRatio={window.devicePixelRatio}
+        aria
         colDefs={{
           value: {
             tickCount: 5,
@@ -22,7 +23,7 @@ const ChartDemo = () => {
           },
         }}
       >
-        <Geometry type="line" position="date*value" />
+        <Geometry type="line" position="date*value" color="#2FC25B" />
         <Tooltip
           custom
           showXTip
