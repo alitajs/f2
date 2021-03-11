@@ -1,9 +1,8 @@
 import React, { useRef } from 'react';
 import { Chart, Geometry, Axis, Tooltip } from '@alitajs/f2';
-import { getDateByName } from '../data';
+import Data from './data';
 import _ from 'lodash';
 const ChartDemo = () => {
-  const state = getDateByName('multipleLine/series');
   const elmRef = useRef(null);
   return (
     <>
@@ -11,7 +10,7 @@ const ChartDemo = () => {
         ref={elmRef}
         width={750}
         height={400}
-        data={state}
+        data={Data}
         pixelRatio={window.devicePixelRatio}
         colDefs={{
           date: {

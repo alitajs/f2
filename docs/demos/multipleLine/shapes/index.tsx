@@ -1,14 +1,13 @@
 import React from 'react';
 import { Chart, Geometry, Axis, Legend } from '@alitajs/f2';
-import { getDateByName } from '../data';
+import Data from './data';
 const ChartDemo = () => {
-  const state = getDateByName('multipleLine/shapes');
   return (
     <>
       <Chart
         width={750}
         height={400}
-        data={state}
+        data={Data}
         pixelRatio={window.devicePixelRatio}
         colDefs={{
           time: {

@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "@antv/f2": "^3.8.1",
+    "jquery": "^3.6.0",
     "lodash": "^4.17.21"
   },
   "devDependencies": {

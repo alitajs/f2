@@ -4,7 +4,7 @@ import Data from './data';
 
 const ChartDemo = () => (
   <Chart
-    width={700}
+    width={750}
     height={400}
     data={Data}
     pixelRatio={window.devicePixelRatio}
