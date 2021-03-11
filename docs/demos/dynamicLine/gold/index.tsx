@@ -1,67 +1,50 @@
-import React, { useEffect, useRef } from 'react';
-import { Chart, Geometry, Axis } from '@alitajs/f2';
+import React, { useEffect } from 'react';
+import { Chart, Geometry, Axis, Guide } from '@alitajs/f2';
 import Data from './data';
 const ChartDemo = () => {
-  const elmRef = useRef(null);
   useEffect(() => {
     Data.forEach(function(obj) {
       result.push(obj.date);
     });
-    // 同步任务执行完成后获取ref
-    setTimeout(() => {
-      drawXText(elmRef.current.chart);
-    }, 0);
   }, []);
   const result = [];
-  const drawXText = chart => {
-    const texts = [
-      {
-        content: '00:00',
-        x: '2017-06-05',
-      },
-      {
-        content: '02:30',
-        x: '2017-06-23',
-      },
-      {
-        content: '24:00',
-        x: '2017-07-24',
-      },
-    ];
+  // 自定义 x 轴的标签文案
+  const texts = [
+    {
+      content: '00:00',
+      x: '2017-06-05',
+    },
+    {
+      content: '02:30',
+      x: '2017-06-23',
+    },
+    {
+      content: '24:00',
+      x: '2017-07-24',
+    },
+  ];
+  const changeStyle = index => {
+    const s = {
+      textBaseline: 'bottom',
+      fill: '#999',
+    } as any;
 
-    texts.forEach(function(item, index) {
-      chart.guide().text({
-        // 位置可以选择实际数值
-        // 也可以选实际数值的索引
-        // 甚至 min、max、median
-        position: [item.x, 'min'],
-        content: item.x.slice(5, 10),
-        style: (function() {
-          const s = {
-            textBaseline: 'bottom',
-            fill: '#999',
-          } as any;
-
-          if (index === 0) {
-            s.textAlign = 'left';
-          } else if (index === texts.length - 1) {
-            s.textAlign = 'right';
-          } else {
-            s.textAlign = 'center';
-          }
-          return s;
-        })(),
-        offsetY: 20,
-      });
-    });
+    if (index === 0) {
+      s.textAlign = 'left';
+    } else if (index === texts.length - 1) {
+      s.textAlign = 'right';
+    } else {
+      s.textAlign = 'center';
+    }
+    return s;
   };
-
   return (
     <>
       <Chart
-        ref={elmRef}
         width={750}
         height={400}
+        // 渲染折线取部分数据，values 作为数据映射取全部数据
+        // 这样折线图就不会撑满整个 canvas
         data={Data.slice(0, 30)}
         pixelRatio={window.devicePixelRatio}
         colDefs={{
@@ -77,7 +60,19 @@ const ChartDemo = () => {
           },
         }}
       >
-        <Axis field="date" disable={true} />
+        {texts.map((item, index) => {
+          return (
+            <Guide
+              key={`${item.content}${item.x}`}
+              type="text"
+              position={[item.x, 'min']}
+              content={item.x.slice(5, 10)}
+              style={changeStyle(index)}
+              offsetY={15}
+            />
+          );
+        })}
+        <Axis field="date" enable={false} />
         <Geometry type="line" position="date*value" />
       </Chart>
     </>
