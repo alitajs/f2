@@ -9,24 +9,24 @@ group:
 
 ### 基础折线图
 
-<code src="../../demos/line/base.tsx" />
+<code src="../../demos/line/base" />
 
 ### 开启无障碍
 
-<code src="../../demos/line/aria.tsx" />
+<code src="../../demos/line/aria" />
 
 ### 带点
 
-<code src="../../demos/line/withPoint.tsx" />
+<code src="../../demos/line/withPoint" />
 
 ### 曲线
 
-<code src="../../demos/line/smooth.tsx" />
+<code src="../../demos/line/smooth" />
 
 ### 折线图平移
 
-<code src="../../demos/line/pan.tsx" />
+<code src="../../demos/line/pan" />
 
 ### 曲线平移
 
-<code src="../../demos/line/panSmooth.tsx" />
+<code src="../../demos/line/panSmooth" />
