@@ -8,6 +8,7 @@ export interface TooltipProps extends TooltipParams<DataRecord> {
    * 当 disable 为 true 时，不渲染 Tooltip
    */
   disable?: boolean;
+  onChange?: (e: any) => void;
   [key: string]: any;
 }
 
