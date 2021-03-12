@@ -5,7 +5,7 @@ const msgPath = process.env.GIT_PARAMS;
 const msg = require('fs')
   .readFileSync(msgPath, 'utf-8')
   .trim();
-
+// feat fix chore
 const commitRE = /^(revert: )?(feat|fix|docs|style|refactor|perf|test|workflow|build|ci|chore|types|wip|release|dep)(\(.+\))?: .{1,50}/;
 
 if (!commitRE.test(msg)) {
