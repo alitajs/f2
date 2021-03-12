@@ -10,3 +10,7 @@ group:
 ### 存在空值
 
 <code src="../../demos/other/null" />
+
+### 连接空值数据
+
+<code src="../../demos/other/connectNull" />
