@@ -9,8 +9,8 @@ group:
 
 ### 存在空值
 
-<code src="../../demos/other/null" />
+<code src="../../demos/Line/other/null" />
 
 ### 连接空值数据
 
-<code src="../../demos/other/connectNull" />
+<code src="../../demos/Line/other/connectNull" />

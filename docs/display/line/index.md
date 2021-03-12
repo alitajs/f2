@@ -9,24 +9,24 @@ group:
 
 ### 基础折线图
 
-<code src="../../demos/line/base" />
+<code src="../../demos/Line/base/base" />
 
 ### 开启无障碍
 
-<code src="../../demos/line/aria" />
+<code src="../../demos/Line/base/aria" />
 
 ### 带点
 
-<code src="../../demos/line/withPoint" />
+<code src="../../demos/Line/base/withPoint" />
 
 ### 曲线
 
-<code src="../../demos/line/smooth" />
+<code src="../../demos/Line/base/smooth" />
 
 ### 折线图平移
 
-<code src="../../demos/line/pan" />
+<code src="../../demos/Line/base/pan" />
 
 ### 曲线平移
 
-<code src="../../demos/line/panSmooth" />
+<code src="../../demos/Line/base/panSmooth" />

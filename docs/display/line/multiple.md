@@ -9,12 +9,12 @@ group:
 
 ### 走势对比
 
-<code src="../../demos/multipleLine/series" />
+<code src="../../demos/Line/multiple/series" />
 
 ### 虚实线对比
 
-<code src="../../demos/multipleLine/shapes" />
+<code src="../../demos/Line/multiple/shapes" />
 
 ### 折线描点
 
-<code src="../../demos/multipleLine/customizeTootlip" />
+<code src="../../demos/Line/multiple/customizeTootlip" />

@@ -9,8 +9,8 @@ group:
 
 ### 某黄金实时金价走势图
 
-<code src="../../demos/dynamicLine/gold" />
+<code src="../../demos/Line/dynamic/gold" />
 
 ### 实时折线
 
-<code src="../../demos/dynamicLine/dynamic" />
+<code src="../../demos/Line/dynamic/dynamic" />
