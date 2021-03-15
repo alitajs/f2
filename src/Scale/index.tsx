@@ -16,6 +16,7 @@ export interface ScaleProps
 }
 
 export default forwardRef<ScaleProps, ScaleProps>((props, ref) => {
+  useScale(props);
   useImperativeHandle(ref, () => ({ ...props }), []);
   return null;
 });
