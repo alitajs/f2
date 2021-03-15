@@ -14,3 +14,7 @@ group:
 ### 区域图（存在空值）
 
 <code src="../../demos/Area/stacked/areaNone" />
+
+### 百分比层叠面积图
+
+<code src="../../demos/Area/stacked/percent" />

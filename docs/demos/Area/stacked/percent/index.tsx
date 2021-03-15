@@ -1,9 +1,14 @@
 import React, { useRef } from 'react';
-import { Chart, Geometry, Axis, Tooltip } from '@alitajs/f2';
+import { Chart, Geometry, Axis, Tooltip, Legend } from '@alitajs/f2';
 import Data from './data';
 import _ from 'lodash';
 const ChartDemo = () => {
   const elmRef = useRef(null);
+  const formatterPercent = value => {
+    value = value || 0;
+    value = value * 100;
+    return parseInt(value) + '%';
+  };
   return (
     <>
       <Chart
@@ -13,17 +18,48 @@ const ChartDemo = () => {
         data={Data}
         pixelRatio={window.devicePixelRatio}
         colDefs={{
-          date: {
+          year: {
             range: [0, 1],
-            type: 'timeCat',
-            mask: 'MM-DD',
           },
-          value: {
-            max: 300,
-            tickCount: 4,
+          percent: {
+            formatter: val => {
+              return formatterPercent(val);
+            },
+            alias: 'percent(%)',
           },
         }}
       >
+        <Axis
+          field="year"
+          label={(text, index, total) => {
+            const textCfg = {} as any;
+            if (index === 0) {
+              textCfg.textAlign = 'left';
+            } else if (index === total - 1) {
+              textCfg.textAlign = 'right';
+            }
+            return textCfg;
+          }}
+        />
+        <Legend
+          // 自定义图例项的 marker 图形样式
+          marker={(x, y, r, ctx) => {
+            // 11px * 9px
+            ctx.save();
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = ctx.fillStyle;
+            ctx.moveTo(x - 5.5, y - 4);
+            ctx.lineTo(x + 5.5, y - 4);
+            ctx.stroke();
+            ctx.restore();
+            ctx.globalAlpha = 0.1;
+            ctx.moveTo(x - 5.5, y - 4);
+            ctx.lineTo(x + 5.5, y - 4);
+            ctx.lineTo(x + 5.5, y + 4);
+            ctx.lineTo(x - 5.5, y + 4);
+            ctx.closePath();
+          }}
+        />
         <Tooltip
           showCrosshairs
           custom
@@ -51,28 +87,16 @@ const ChartDemo = () => {
             legend.setItems(elmRef.current.chart.getLegendItems().country);
           }}
         />
-        <Axis
-          field="date"
-          label={(text, index, total) => {
-            const textCfg = {} as any;
-            if (index === 0) {
-              textCfg.textAlign = 'left';
-            } else if (index === total - 1) {
-              textCfg.textAlign = 'right';
-            }
-            return textCfg;
-          }}
-        />
         <Geometry
           type="line"
-          position="date*value"
-          color="city"
+          position="year*percent"
+          color="country"
           adjust="stack"
         />
         <Geometry
           type="area"
-          position="date*value"
-          color="city"
+          position="year*percent"
+          color="country"
           adjust="stack"
         />
       </Chart>
