@@ -10,3 +10,7 @@ group:
 ### 基础面积图
 
 <code src="../../demos/Area/base/base" />
+
+### 带负值面积图
+
+<code src="../../demos/Area/base/withNegative" />
