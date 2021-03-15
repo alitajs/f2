@@ -10,3 +10,7 @@ group:
 ### 层叠面积图
 
 <code src="../../demos/Area/stacked/stacked" />
+
+### 区域图（存在空值）
+
+<code src="../../demos/Area/stacked/areaNone" />
