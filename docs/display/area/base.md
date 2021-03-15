@@ -18,3 +18,7 @@ group:
 ### 带负值面积图(x 基线不为 0)
 
 <code src="../../demos/Area/base/withNegativeNotZero" />
+
+### 渐变填充面积图
+
+<code src="../../demos/Area/base/gradient" />
