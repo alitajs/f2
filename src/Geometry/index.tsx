@@ -12,7 +12,6 @@ export interface GeometryProps extends Geometry<GeometryKind, DataRecord> {
   type: GeometryKind;
   chart: F2Chart;
   config?: GeometryParams;
-  [key: string]: any;
 }
 
 export default forwardRef<

@@ -29,10 +29,6 @@ export interface ChartProps extends ChartParams {
    * canvas 的 style
    */
   style?: React.HTMLAttributes<HTMLDivElement>['style'];
-  /**
-   * @todo 补全所有的内部属性后去除该项
-   */
-  [key: string]: any;
 }
 
 export type ChartChildRenderProps =

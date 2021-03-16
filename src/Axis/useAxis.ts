@@ -4,7 +4,7 @@ import { AxisProps } from './';
 export interface UseAxis extends AxisProps {}
 
 export default (props = {} as UseAxis) => {
-  const { chart, field, enable, disable, ...reset } = props;
+  const { chart, field, enable = true, disable, ...reset } = props;
   useMemo(() => {
     if (!chart) return;
     if (disable) chart.axis(false);

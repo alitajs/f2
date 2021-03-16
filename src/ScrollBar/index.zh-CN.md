@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: ScrollBar
+group:
+  title: ScrollBar
 ---
 
 ### 基本用法

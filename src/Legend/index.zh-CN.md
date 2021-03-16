@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: Legend
+group:
+  title: Legend
 ---
 
 ### 基本用法

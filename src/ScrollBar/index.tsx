@@ -4,7 +4,6 @@ import { Chart as F2Chart, ScrollBarParams } from '@antv/f2';
 
 export interface ScrollBarProps extends ScrollBarParams {
   chart: F2Chart;
-  [key: string]: any;
 }
 
 export default forwardRef<ScrollBarProps, ScrollBarProps>((props, ref) => {

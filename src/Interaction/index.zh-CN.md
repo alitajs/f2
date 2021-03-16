@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: Interaction
+group:
+  title: Interaction
 ---
 
 ### 基本用法
