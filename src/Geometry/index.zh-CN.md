@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: Geometry
+group:
+  title: Geometry
 ---
 
 ### 基本用法
@@ -16,17 +19,22 @@ nav:
 
 ### 图形演示
 
-点
+#### 点
+
 <code src="./demo/point.tsx" />
 
-线
+#### 线
+
 <code src="./demo/path.tsx" />
 
-折线
+#### 折线
+
 <code src="./demo/line.tsx" />
 
-面积
+#### 面积
+
 <code src="./demo/area.tsx" />
 
-柱形
+#### 柱形
+
 <code src="./demo/interval.tsx" />

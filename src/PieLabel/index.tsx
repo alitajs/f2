@@ -9,7 +9,6 @@ import {
 
 export interface PieLabelProps extends PieLabelParams<DataRecord> {
   chart: F2Chart;
-  [key: string]: any;
 }
 
 export default forwardRef<PieLabelProps, PieLabelProps>((props, ref) => {

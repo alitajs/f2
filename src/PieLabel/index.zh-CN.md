@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: PieLabel
+group:
+  title: PieLabel
 ---
 
 ### 基本用法

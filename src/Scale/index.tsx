@@ -11,8 +11,10 @@ import {
 export interface ScaleProps
   extends ScaleCommonProps<ScaleType, DataRecord, DataField<DataRecord>> {
   chart: F2Chart;
+  /**
+   * 交互行为类型
+   */
   field: string;
-  [key: string]: any;
 }
 
 export default forwardRef<ScaleProps, ScaleProps>((props, ref) => {

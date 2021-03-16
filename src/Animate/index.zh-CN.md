@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: Animate
+group:
+  title: Animate
 ---
 
 ### 基本用法

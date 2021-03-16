@@ -5,7 +5,7 @@ import { isFunction } from '../utils';
 export interface UseGeometry extends GeometryProps {}
 
 export default (props = {} as UseGeometry) => {
-  const { chart, config, container, type, ...reset } = props;
+  const { chart, config, type, ...reset } = props;
   const [geometry, setGeometry] = useState<GeometryProps | undefined>();
   useMemo(() => {
     if (!chart) return;
@@ -17,7 +17,7 @@ export default (props = {} as UseGeometry) => {
         if (Array.isArray(value)) {
           fn.apply(geometry, value);
         } else {
-          geometry[key](value);
+          if (geometry) geometry[key](value);
         }
       }
     }
