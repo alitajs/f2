@@ -4,6 +4,7 @@
  * @return {Number} 屏幕上实际像素
  */
 export const px2hd = (px?: number): number => {
+  if ((window as any).px2hd) return (window as any).px2hd(px);
   if (!px) return 0;
   const ONE_REM =
     parseInt(document.documentElement.style.fontSize || '100', 10) || 100;
