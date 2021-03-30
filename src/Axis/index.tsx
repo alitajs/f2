@@ -7,13 +7,17 @@ export interface AxisProps
   chart: F2Chart;
   /**
    * 当 enable 为 false 时，关闭 field 对应的坐标轴。
+   * @default true
    */
   enable?: boolean;
   /**
    * 当 disable 为 true 时，不渲染坐标轴
    */
   disable?: boolean;
-  [key: string]: any;
+  /**
+   * 代表坐标轴对应的数据字段名
+   */
+  field?: string;
 }
 
 export default forwardRef<AxisProps, AxisProps>((props, ref) => {

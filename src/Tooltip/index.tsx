@@ -9,7 +9,7 @@ export interface TooltipProps extends TooltipParams<DataRecord> {
    */
   disable?: boolean;
   onChange?: (e: any) => void;
-  [key: string]: any;
+  // [key: string]: any;
 }
 
 export default forwardRef<TooltipProps, TooltipProps>((props, ref) => {

@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: Tooltip
+group:
+  title: Tooltip
 ---
 
 ### 基本用法

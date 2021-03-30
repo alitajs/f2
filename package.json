@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/f2",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -37,7 +37,9 @@
     "react": "^16.12.0"
   },
   "dependencies": {
-    "@antv/f2": "^3.8.1"
+    "@antv/f2": "^3.8.1",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@umijs/test": "^3.3.7",

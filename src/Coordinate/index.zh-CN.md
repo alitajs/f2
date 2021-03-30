@@ -2,6 +2,9 @@
 nav:
   title: API
   path: /api
+title: Coordinate
+group:
+  title: Coordinate
 ---
 
 ### 基本用法

@@ -21,7 +21,6 @@ export interface LegendProps extends LegendParams {
       onEnd?: (clickedShape: any, coord: any, canvas: any) => void,
     ) => void;
   }) => any;
-  [key: string]: any;
 }
 
 export default forwardRef<LegendProps, LegendProps>((props, ref) => {
