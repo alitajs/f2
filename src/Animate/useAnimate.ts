@@ -11,6 +11,5 @@ export default (props = {} as UseAnimate) => {
     if (disable) chart.animate(false);
     chart.animate(reset);
   }, [chart]);
-
   return null;
 };
