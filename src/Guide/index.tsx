@@ -50,8 +50,7 @@ export interface GuideProps {
 
 export default forwardRef<GuideProps, GuideProps & { guide: Guide }>(
   (props, ref) => {
-    const { guide } = useGuide(props);
-    useImperativeHandle(ref, () => ({ ...props, guide }), [guide]);
+    useGuide(props);
     return null;
   },
 );
