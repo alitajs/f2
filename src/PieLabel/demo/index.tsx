@@ -11,6 +11,9 @@ import {
 import PieLabel from '..';
 
 const ChartDemo = () => {
+  const [a, seta] = useState(
+    '<div style="text-align: center;width:1.5rem;height: 0.5rem;">\n      <p style="font-size: 0.12rem;color: #999;margin: 0" id="title">1111</p>\n      <p style="font-size: 0.18rem;color: #343434;margin: 0;font-weight: bold;" id="money"></p>\n      </div>',
+  );
   const data = [
     {
       const: 'const',
@@ -51,13 +54,7 @@ const ChartDemo = () => {
         <Axis disable />
         <Legend disable />
         <Tooltip disable />
-        <Guide
-          type="html"
-          position={['50%', '50%']}
-          html={
-            '<div style="text-align: center;width:1.5rem;height: 0.5rem;">\n      <p style="font-size: 0.12rem;color: #999;margin: 0" id="title"></p>\n      <p style="font-size: 0.18rem;color: #343434;margin: 0;font-weight: bold;" id="money"></p>\n      </div>'
-          }
-        />
+        <Guide type="html" position={['50%', '50%']} html={a} />
         <Geometry
           type="interval"
           position="const*money"
@@ -87,6 +84,25 @@ const ChartDemo = () => {
           }}
         />
       </Chart>
+      <div
+        onClick={() => {
+          seta(
+            '<div style="text-align: center;width:1.5rem;height: 0.5rem;">\n      <p style="font-size: 0.12rem;color: #999;margin: 0" id="title">2222</p>\n      <p style="font-size: 0.18rem;color: #343434;margin: 0;font-weight: bold;" id="money"></p>\n      </div>',
+          );
+        }}
+      >
+        切换文字1
+      </div>
+
+      <div
+        onClick={() => {
+          seta(
+            '<div style="text-align: center;width:1.5rem;height: 0.5rem;">\n      <p style="font-size: 0.12rem;color: #999;margin: 0" id="title">3333</p>\n      <p style="font-size: 0.18rem;color: #343434;margin: 0;font-weight: bold;" id="money"></p>\n      </div>',
+          );
+        }}
+      >
+        切换文字2
+      </div>
     </>
   );
 };
