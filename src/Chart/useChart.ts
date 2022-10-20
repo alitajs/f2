@@ -41,16 +41,13 @@ export default (props: UseChart) => {
     if (mounting.current) {
       chart.render();
       mounting.current = false;
-    } else {
-      chart.source(data, colDefs);
-      chart.changeData(data);
     }
   });
-  // useEffect(() => {
-  //   if (chart) {
-  //     chart.changeData(data);
-  //   }
-  // }, [JSON.stringify(data)]);
+  useEffect(() => {
+    if (chart) {
+      chart.changeData(data);
+    }
+  }, [JSON.stringify(data)]);
 
   //TODO: 更新 guide,因为 guide 改成每次渲染都添加
   chart?.guide().clear();
